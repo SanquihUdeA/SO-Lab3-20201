@@ -40,7 +40,7 @@ Saxpy_args** create_args (int n_elements, int n_threads, int max_iters, int *n_i
 			n_leftovers--;	
 		} else { n = arr_chunk; }
 		end_index = curr_index + n - 1;	
-		parms[n_threads] -> curr_index = curr_index;	
+		parms[n_threads] -> curr_index = curr_index;
     parms[n_threads] -> p = n_elements;
 		parms[n_threads] -> end_index = end_index;	
 		parms[n_threads] -> n_threads = n_threads_copy;	
@@ -105,8 +105,7 @@ void wait_for_threads (pthread_t *threads, int n_threads) {
 }
 
 int main(int argc, char* argv[]) {
-	
-  // Variables to obtain command line parameters
+	// Variables to obtain command line parameters
 	unsigned int seed = 1;
   int p = 10000000;
   int n_threads = 2;
@@ -191,7 +190,7 @@ int main(int argc, char* argv[]) {
 	gettimeofday(&t_start, NULL);
   sem_init(&mutex,0,1); //Inicializacion de semaforo binario
 	//SAXPY iterative SAXPY mfunction
-
+  
   it = 0;
 	Saxpy_args **args = create_args(p, n_threads, max_iters, &it, a,  X, Y, Y_avgs);
 	pthread_t *threads;
